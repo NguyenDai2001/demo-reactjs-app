@@ -7,7 +7,7 @@ import LogoImage from '../assets/Logo.png';
 import image1 from '../assets/image1 1.png';
 
 const HomePage = () => {
-    const [buttonSignIn, setbuttonSignIn] = useState<boolean>(false)
+    const [buttonSignIn] = useState<boolean>(false)
 
     const handldeClick = () => {
     }
