@@ -10,6 +10,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/homeSign" element={<HomePage />} />
                 <Route path="/signin" element={<SignInPage />} />
                 <Route path="/profile" element={<ProFilePage />} />
             </Routes>
