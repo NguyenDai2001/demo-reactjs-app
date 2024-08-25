@@ -45,7 +45,7 @@ const HomeSlide: React.FC = () => {
             <div className="relative slide w-[375px] sm:w-[1120px] h-[660px] sm:h-[710.27px] bg-buttonColor rounded-[50px]">
                 <h2 className='absolute left-[100px] top-[50px] sm:top-[120px] text-[30px] sm:text-[40px] font-[700] text-[#ffffff]'>Testimonials</h2>
                 <div className='absolute left-[20px] sm:left-[100px] bottom-[100px] w-[340px] sm:w-[931.66px] h-[430.59px] sm:h-[330.59px] rounded-[20px] bg-[#ffffff] drop-shadow-[0_20px_0px_rgba(138,86,219,1)]'>
-                    <img src={slides[currentIndex].image} className='absolute top-[40px] sm:top-[60px] left-[100px] sm:left-[240px]' />
+                    <img src={slides[currentIndex].image} className='absolute top-[40px] sm:top-[60px] left-[100px] sm:left-[240px] ' />
                     <div className='absolute w-[300px] sm:w-[340px] right-[00px] sm:right-[200px] top-[150px] sm:top-[60px]'>
                         <b className='text-[18px] font-[900] text-[#212353]'>{slides[currentIndex].name}</b>
                         <a href='#' className='block text-buttonColor '>{slides[currentIndex].link}</a>
