@@ -15,9 +15,10 @@ import imgIcon3 from '../assets/image5 1.png';
 import imgIcon4 from '../assets/image6 1.png';
 import HomeFeatures from "../components/HomeFeatures";
 import HomeSlide from '../components/HomeSlide';
+import Footer from "../components/Footer";
 
 const HomePage = () => {
-    const [buttonSignIn] = useState<boolean>(true)
+    const [buttonSignIn] = useState<boolean>(false)
 
     const handldeClick = () => {
     }
@@ -36,10 +37,10 @@ const HomePage = () => {
                         </div>
                     }
                     {!buttonSignIn &&
-                        <Button label='Sign In' setClassName="" onClick={handldeClick} />
+                        <Button label='Sign In' setClassName="mx-4 sm:mx-0" onClick={handldeClick} />
                     }
                 </header>
-                <img src={image1} className="absolute bottom-0 right-0 w-[759.25px] h-[240px] sm:h-[401.49px]" alt="image1" />
+                <img src={image1} className="absolute bottom-0 right-0 w-[759.25px] h-[240px] sm:h-[401.49px] transition duration-700 ease-in-out" alt="image1" />
                 <div className="absolute w-[300px] sm:w-[640.99px] bottom-[200px] sm:bottom-[50px] left-4 sm:left-0">
                     <h1 className="text-[50px] sm:text-[80px] text-textTitleColor leading-[58px] sm:leading-[88px] font-[700] my-[40px]">Save your data storage here.</h1>
                     <p className="text-textParaColor text-[18px] w-[277.64px] sm:w-[377.64px] font-[500] leading-[26px] sm:leading-[28.8px]">Data Warehouse is a data storage area that has been
@@ -78,6 +79,10 @@ you created, so only you can open the file." link="#" />
             {/* line */}
             <section className="wrapper flex items-center">
                 <hr className="my-[100px] w-[1400px]"></hr>
+            </section>
+
+            <section className="wrapper">
+                <Footer />
             </section>
 
         </>
