@@ -2,7 +2,7 @@
 import "../css/homePage.scss";
 import Button from '../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoImage from '../assets/Logo.png';
 import image1 from '../assets/image1 1.png';
 import imgBG1 from '../assets/Rectangle1.png';
@@ -19,8 +19,12 @@ import Footer from "../components/Footer";
 import useAnimationOnLoad from '../hooks/useAnimationOnLoad';
 
 const HomePage = () => {
-    const [buttonSignIn] = useState<boolean>(false)
 
+    // hiển thị nút ấn khi đăng nhập thành công
+    const [buttonSignIn, setbuttonSignIn] = useState<boolean>(false)
+
+
+    // hàm chờ (chưa xử lý gì)
     const handldeClick = () => {
     }
 
@@ -29,6 +33,17 @@ const HomePage = () => {
         naviGate('/signin')
     }
 
+
+    // kiểm tra đang nhập thanh công hay không
+    useEffect(() => {
+        // Kiểm tra trạng thái đăng nhập khi trang chủ được tải
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+            setbuttonSignIn(true);
+        }
+    }, []);
+
+    // hàm gọi hiệu ứng 
     useAnimationOnLoad("fade-in")
     return (
         <>
