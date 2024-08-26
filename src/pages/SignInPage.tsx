@@ -16,12 +16,17 @@ const SignInPage: React.FC = () => {
         refreshToken: string;
         code?: number;
     }
+
+
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // Ngăn chặn hành vi gửi biểu mẫu mặc định
-
+        const element = await document.getElementById('loadingLogin');
+        if (element) {
+            await element.classList.remove('hidden');
+        }
         try {
             const response = await axios.post<LoginResponse>('https://api-test-web.agiletech.vn/auth/login', { username });
-
             if (response.data.accessToken && response.data.refreshToken) {
                 // Lưu token vào localStorage
                 localStorage.setItem('accessToken', response.data.accessToken);
@@ -43,6 +48,9 @@ const SignInPage: React.FC = () => {
                 setError("Lỗi đăng nhập")
                 console.log('Đã xảy ra lỗi:', error);
             }
+        }
+        if (element) {
+            await element.classList.add('hidden');
         }
     };
 
@@ -72,7 +80,10 @@ const SignInPage: React.FC = () => {
 
                     {error && <p className="text-red-500 text-center">{error}</p>}
 
-                    <button type='submit' className='w-full h-[53px] mt-10 bg-buttonColor font-[400] text-[16px] text-[#ffffff] rounded-[50px]'>Sign In</button>
+                    <button type='submit' className='mr-3 w-full h-[53px] mt-10 bg-buttonColor font-[400] text-[16px] text-[#ffffff] rounded-[50px] flex justify-center items-center'>
+                        <i id='loadingLogin' className="hidden fa-solid fa-spinner animate-spin m-2" style={{ color: '#d1d1d1' }}></i>
+                        Sign In
+                    </button>
                 </form>
 
             </section>

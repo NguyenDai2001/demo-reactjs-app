@@ -32,6 +32,9 @@ const HomePage = () => {
     const handleGotoSignIn = () => {
         naviGate('/signin')
     }
+    const handleGotoProfile = () => {
+        naviGate('/profile')
+    }
 
 
     // kiểm tra đang nhập thanh công hay không
@@ -43,6 +46,12 @@ const HomePage = () => {
         }
     }, []);
 
+    //Logout
+    const handlLogout = () => {
+        setbuttonSignIn(false)
+        localStorage.removeItem('accessToken')
+    }
+
     // hàm gọi hiệu ứng 
     useAnimationOnLoad("fade-in")
     return (
@@ -53,8 +62,8 @@ const HomePage = () => {
 
                     {buttonSignIn &&
                         <div className=" flex justify-between w-[220px] me-3 sm:w-[450px] sm:me-0">
-                            <Button label='Profile' setClassName="" onClick={handldeClick} />
-                            <Button label='Logout' setClassName="" onClick={handldeClick} />
+                            <Button label='Profile' setClassName="" onClick={handleGotoProfile} />
+                            <Button label='Logout' setClassName="" onClick={handlLogout} />
                         </div>
                     }
                     {!buttonSignIn &&
